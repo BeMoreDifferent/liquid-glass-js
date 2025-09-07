@@ -168,6 +168,11 @@ liquid-glass {
 
 Check out the [live demo](https://bemoredifferent.github.io/liquid-glass-js/) to see all effects in action.
 
+**Note**: If the demo link doesn't work immediately, you may need to enable GitHub Pages in your repository settings:
+1. Go to Settings → Pages
+2. Select "GitHub Actions" as the source
+3. The site will be available at the URL above once deployed
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
