@@ -2,6 +2,8 @@
 
 A modern JavaScript library for creating stunning liquid glass effects with both CSS classes and web components. Features advanced SVG displacement filters, chromatic aberration, and smooth animations.
 
+> **Inspired by**: [Liquid Glass in CSS (and SVG)](https://medium.com/ekino-france/liquid-glass-in-css-and-svg-839985fcb88d) by Adrien Gautier, but modified for custom HTML components and heavily optimized for rendering speed and reduced battery usage.
+
 ## Features
 
 - 🌊 **Liquid Glass Effects**: Advanced displacement and blur effects
@@ -168,10 +170,6 @@ liquid-glass {
 
 Check out the [live demo](https://bemoredifferent.github.io/liquid-glass-js/) to see all effects in action.
 
-**Note**: If the demo link doesn't work immediately, you may need to enable GitHub Pages in your repository settings:
-1. Go to Settings → Pages
-2. Select "GitHub Actions" as the source
-3. The site will be available at the URL above once deployed
 
 ## Contributing
 
