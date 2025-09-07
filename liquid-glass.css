@@ -1,0 +1,73 @@
+/* liquid-glass.css */
+:host {
+  --lg-blur: 16px;
+  --lg-saturate: 1.12;
+  --lg-contrast: 1.05;
+  --lg-brightness: 1.05;
+  --lg-bg: rgba(255, 255, 255, 0.1);
+  --lg-border: rgba(255, 255, 255, 0.2);
+  --lg-radius: 16px;
+
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+}
+
+.surface {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--lg-radius);
+  background: var(--lg-bg);
+  border: 1px solid var(--lg-border);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  /* Blur fallback first, then advanced filter if supported */
+  backdrop-filter:
+    blur(var(--lg-blur, 2px))
+    saturate(var(--lg-saturate))
+    contrast(var(--lg-contrast))
+    brightness(var(--lg-brightness))
+    var(--lg-filter, none);
+  -webkit-backdrop-filter:
+    blur(var(--lg-blur, 2px))
+    saturate(var(--lg-saturate))
+    contrast(var(--lg-contrast))
+    brightness(var(--lg-brightness));
+  color: inherit;
+}
+
+:host([disabled]) .surface,
+.surface[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .6;
+  pointer-events: none;
+}
+
+:host([interactive]:hover) .surface { filter: brightness(1.03); }
+:host([interactive]:active) .surface { filter: brightness(.98) contrast(1.03); }
+
+/* Focus ring */
+:host(:focus-visible) .surface,
+.surface:focus-visible {
+  outline: 2px solid color-mix(in oklab, highlight 60%, white);
+  outline-offset: 2px;
+  border-color: color-mix(in oklab, white 75%, transparent);
+}
+
+/* Optional stronger look */
+:host([elevated]) .surface {
+  border-color: color-mix(in oklab, white 75%, transparent);
+}
+
+/* Respect reduced transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .surface {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: color-mix(in oklab, canvas 92%, white 8%);
+  }
+}

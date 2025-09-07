@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Examples</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./liquid-glass.js"></script>
+</head>
+<body>
+    <!-- SVG Filter for liquid glass effect - Improved -->
+    <svg aria-hidden="true" width="0" height="0" style="position:absolute; left: -9999px;">
+        <defs>
+            <filter id="liquid-refraction" x="-50%" y="-50%" width="200%" height="200%" 
+                    filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="42" result="noise"/>
+                <feGaussianBlur in="noise" stdDeviation="2" result="smoothNoise"/>
+                <feDisplacementMap in="SourceGraphic" in2="smoothNoise" 
+                                   scale="8" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                <feGaussianBlur in="displaced" stdDeviation="1" result="final"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <h1>Liquid Glass Effects</h1>
+    
+    <div class="container">
+        <!-- CSS Class Implementation -->
+        <div class="section">
+            <h2>CSS Class Implementation</h2>
+            
+            <div class="example">
+                <h3>Basic Container</h3>
+                <div class="liquid-glass">
+                    Static liquid glass container
+                </div>
+                <div class="code-block">
+&lt;div class="liquid-glass"&gt;
+    Static liquid glass container
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Link-like</h3>
+                <a href="#" class="liquid-glass" onclick="return false;">
+                    Link-style liquid glass
+                </a>
+                <div class="code-block">
+&lt;a href="#" class="liquid-glass"&gt;
+    Link-style liquid glass
+&lt;/a&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Elevated Style</h3>
+                <div class="liquid-glass" data-elevated="true">
+                    Elevated liquid glass
+                </div>
+                <div class="code-block">
+&lt;div class="liquid-glass" data-elevated="true"&gt;
+    Elevated liquid glass
+&lt;/div&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Web Component Implementation -->
+        <div class="section">
+            <h2>Web Component Implementation</h2>
+            
+            <div class="example">
+                <h3>Basic Container</h3>
+                <liquid-glass>
+                    Web component container
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass&gt;
+    Web component container
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>High Displacement</h3>
+                <liquid-glass strength="150" depth="15">
+                    Strong liquid glass effect
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass strength="150" depth="15"&gt;
+    Strong liquid glass effect
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Chromatic Aberration</h3>
+                <liquid-glass chromatic="20" strength="120">
+                    With chromatic aberration
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass chromatic="20" strength="120"&gt;
+    With chromatic aberration
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Interactive Button</h3>
+                <liquid-glass interactive id="interactive-btn" strength="100" blur="3">
+                    Interactive button
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass interactive strength="100" blur="3"&gt;
+    Interactive button
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Link Component</h3>
+                <liquid-glass href="https://example.com" target="_blank" strength="80" depth="8">
+                    Link component
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass href="https://example.com" strength="80" depth="8"&gt;
+    Link component
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Subtle Effect</h3>
+                <liquid-glass strength="50" blur="1" depth="5">
+                    Subtle glass effect
+                </liquid-glass>
+                <div class="code-block">
+&lt;liquid-glass strength="50" blur="1" depth="5"&gt;
+    Subtle glass effect
+&lt;/liquid-glass&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional scrolling content to demonstrate fixed background -->
+    <div style="margin-top: 4rem; padding: 2rem; text-align: center;">
+        <h2 style="color: white; margin-bottom: 2rem;">Scroll to see the liquid glass effects over different background elements</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <liquid-glass strength="80" depth="8" style="padding: 1.5rem;">
+                <h3 style="margin: 0; color: white;">Over Grid Lines</h3>
+                <p style="margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Notice how the grid blurs</p>
+            </liquid-glass>
+            
+            <liquid-glass strength="120" chromatic="15" style="padding: 1.5rem;">
+                <h3 style="margin: 0; color: white;">Over Text</h3>
+                <p style="margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Text becomes distorted</p>
+            </liquid-glass>
+            
+            <liquid-glass strength="100" depth="12" blur="4" style="padding: 1.5rem;">
+                <h3 style="margin: 0; color: white;">Over Shapes</h3>
+                <p style="margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Geometric displacement</p>
+            </liquid-glass>
+            
+            <liquid-glass strength="60" depth="6" style="padding: 1.5rem;">
+                <h3 style="margin: 0; color: white;">Subtle Effect</h3>
+                <p style="margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Light glass effect</p>
+            </liquid-glass>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <liquid-glass href="#" onclick="return false;" strength="90" depth="10" style="padding: 2rem; text-align: center;">
+                <h3 style="margin: 0 0 1rem 0; color: white;">Link with Glass Effect</h3>
+                <p style="margin: 0; color: rgba(255,255,255,0.8);">This is a clickable link with liquid glass styling</p>
+            </liquid-glass>
+            
+            <liquid-glass interactive strength="110" chromatic="10" style="padding: 2rem; text-align: center;">
+                <h3 style="margin: 0 0 1rem 0; color: white;">Interactive Button</h3>
+                <p style="margin: 0; color: rgba(255,255,255,0.8);">Click or press Enter/Space to activate</p>
+            </liquid-glass>
+        </div>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.2); border-radius: 16px; backdrop-filter: blur(10px);">
+            <h3 style="color: white; margin-bottom: 1rem;">Scroll Effect Demonstration</h3>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+                As you scroll, notice how the liquid glass elements move over different parts of the fixed background. 
+                The grid lines, text, and geometric shapes behind each glass element will show different blur and displacement effects.
+            </p>
+            <p style="color: rgba(255,255,255,0.8);">
+                The background stays fixed in place while the content scrolls, creating a parallax-like effect that 
+                makes the liquid glass processing clearly visible.
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 3rem 0;">
+            <liquid-glass strength="140" depth="18" chromatic="25" style="padding: 1rem 2rem;">
+                <strong style="color: white;">Strong Effect</strong>
+            </liquid-glass>
+            
+            <liquid-glass strength="200" depth="25" chromatic="40" blur="6" style="padding: 1rem 2rem;">
+                <strong style="color: white;">Extreme Effect</strong>
+            </liquid-glass>
+        </div>
+    </div>
+
+   
+    <script>
+        // Add click handler for interactive button
+        document.getElementById('interactive-btn').addEventListener('click', () => {
+            alert('Interactive button clicked!');
+        });
+
+        // Add click handler for the additional interactive button
+        document.querySelectorAll('liquid-glass[interactive]').forEach(element => {
+            element.addEventListener('click', () => {
+                console.log('Interactive liquid glass clicked!');
+            });
+        });
+    </script>
+</body>
+</html>

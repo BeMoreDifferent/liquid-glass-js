@@ -1,0 +1,151 @@
+/* Main page styles */
+body {
+  margin: 0;
+  padding: 2rem;
+  min-height: 200vh; /* Make page taller to enable scrolling */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(127, 255, 221, 0.3), transparent 40%),
+    linear-gradient(120deg, rgba(255, 218, 122, 0.3), rgba(125, 211, 252, 0.3) 60%, rgba(196, 181, 253, 0.3)),
+    linear-gradient(45deg, 
+      rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.3), rgba(69, 183, 209, 0.3), 
+      rgba(150, 206, 180, 0.3), rgba(254, 202, 87, 0.3), rgba(255, 159, 243, 0.3), 
+      rgba(84, 160, 255, 0.3), rgba(95, 39, 205, 0.3), rgba(0, 210, 211, 0.3), rgba(255, 159, 67, 0.3)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.15"/></pattern><pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.2"/></pattern></defs><rect width="100%25" height="100%25" fill="%23000"/><rect width="100%25" height="100%25" fill="url(%23grid)"/><rect width="100%25" height="100%25" fill="url(%23dots)"/><circle cx="200" cy="150" r="120" fill="%23ff6b6b" opacity="0.6"/><circle cx="1000" cy="200" r="80" fill="%234ecdc4" opacity="0.6"/><circle cx="600" cy="500" r="150" fill="%2345b7d1" opacity="0.6"/><circle cx="300" cy="600" r="100" fill="%23feca57" opacity="0.6"/><circle cx="900" cy="650" r="90" fill="%2396ceb4" opacity="0.6"/><rect x="100" y="300" width="180" height="120" fill="%23ff9ff3" opacity="0.6" transform="rotate(25 190 360)"/><rect x="800" y="400" width="150" height="100" fill="%2354a0ff" opacity="0.6" transform="rotate(-35 875 450)"/><rect x="500" y="100" width="200" height="80" fill="%235f27cd" opacity="0.6" transform="rotate(15 600 140)"/><polygon points="150,500 250,450 200,550" fill="%2300d2d3" opacity="0.6"/><polygon points="950,300 1050,250 1000,350" fill="%23ff9f43" opacity="0.6" transform="rotate(45 1000 300)"/><text x="600" y="80" text-anchor="middle" fill="%23ffffff" font-size="32" font-family="Arial" opacity="0.9" font-weight="bold">LIQUID GLASS DEMO</text><text x="600" y="120" text-anchor="middle" fill="%23ffffff" font-size="18" font-family="Arial" opacity="0.7">Complex patterns reveal displacement and blur effects</text><text x="100" y="200" fill="%23ffffff" font-size="16" font-family="monospace" opacity="0.8" transform="rotate(-10 100 200)">Sharp edges</text><text x="1000" y="400" fill="%23ffffff" font-size="16" font-family="monospace" opacity="0.8" transform="rotate(10 1000 400)">Grid lines</text><text x="600" y="700" text-anchor="middle" fill="%23ffffff" font-size="14" font-family="Arial" opacity="0.6">Geometric shapes and text elements make glass effects clearly visible</text></svg>');
+  background-attachment: fixed; /* Fix background in place */
+  background-size: 100% 100%, 100% 100%, 400% 400%, cover;
+  background-position: 0% 0%, 0% 0%, 0% 50%, center;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+  50% { background-position: 0% 0%, 0% 0%, 100% 50%; }
+  100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.section {
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+h2 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.example {
+  margin-bottom: 2rem;
+}
+
+.example h3 {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* CSS Class Implementation */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  color: white;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  backdrop-filter:
+    url("#liquid-refraction")
+    blur(16px)
+    saturate(1.15)
+    contrast(1.05)
+    brightness(1.05);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(1.15)
+    contrast(1.05)
+    brightness(1.05);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.liquid-glass:hover {
+  filter: brightness(1.03);
+  transform: translateY(-2px);
+}
+
+.liquid-glass:active {
+  filter: brightness(.98) contrast(1.03);
+  transform: translateY(0);
+}
+
+.liquid-glass[data-elevated="true"] {
+  border-color: color-mix(in oklab, white 75%, transparent);
+}
+
+/* Web Component Styling */
+liquid-glass {
+  color: white;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+liquid-glass::part(surface) {
+  padding: 1rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+liquid-glass:hover::part(surface) {
+  transform: translateY(-2px);
+}
+
+liquid-glass:active::part(surface) {
+  transform: translateY(0);
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  body {
+    padding: 1rem;
+  }
+}
