@@ -163,12 +163,6 @@ liquid-glass {
 <script type="module" src="./liquid-glass.js"></script>
 ```
 
-### CDN (Coming Soon)
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/liquid-glass-js@latest/liquid-glass.css">
-<script type="module" src="https://cdn.jsdelivr.net/npm/liquid-glass-js@latest/liquid-glass.js"></script>
-```
 
 ## Examples
 

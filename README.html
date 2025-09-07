@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="liquidglassjs">Liquid Glass JS</h1>
+
+<p>A modern JavaScript library for creating stunning liquid glass effects with both CSS classes and web components. Features advanced SVG displacement filters, chromatic aberration, and smooth animations.</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+<li>🌊 <strong>Liquid Glass Effects</strong>: Advanced displacement and blur effects</li>
+<li>🎨 <strong>Chromatic Aberration</strong>: RGB channel separation for realistic glass distortion</li>
+<li>⚡ <strong>Web Components</strong>: Modern <code>&lt;liquid-glass&gt;</code> custom element</li>
+<li>🎯 <strong>CSS Classes</strong>: Simple class-based implementation</li>
+<li>📱 <strong>Responsive</strong>: Works on all devices and screen sizes</li>
+<li>♿ <strong>Accessible</strong>: Full keyboard navigation and screen reader support</li>
+<li>🎛️ <strong>Customizable</strong>: Extensive configuration options</li>
+</ul>
+
+<h2 id="quickstart">Quick Start</h2>
+
+<h3 id="webcomponentrecommended">Web Component (Recommended)</h3>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./liquid-glass.css&quot;&gt;
+    &lt;script type=&quot;module&quot; src=&quot;./liquid-glass.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Basic glass effect --&gt;
+    &lt;liquid-glass&gt;
+        Hello, Glass World!
+    &lt;/liquid-glass&gt;
+
+    &lt;!-- Interactive button --&gt;
+    &lt;liquid-glass interactive strength=&quot;120&quot; depth=&quot;15&quot;&gt;
+        Click me!
+    &lt;/liquid-glass&gt;
+
+    &lt;!-- Link with glass effect --&gt;
+    &lt;liquid-glass href=&quot;https://example.com&quot; strength=&quot;100&quot;&gt;
+        Visit Example
+    &lt;/liquid-glass&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="cssclasses">CSS Classes</h3>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./liquid-glass.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Basic glass container --&gt;
+    &lt;div class=&quot;liquid-glass&quot;&gt;
+        Static glass container
+    &lt;/div&gt;
+
+    &lt;!-- Elevated style --&gt;
+    &lt;div class=&quot;liquid-glass&quot; data-elevated=&quot;true&quot;&gt;
+        Enhanced glass effect
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="webcomponentapi">Web Component API</h2>
+
+<h3 id="attributes">Attributes</h3>
+
+<table>
+<colgroup>
+<col />
+<col />
+<col />
+<col />
+</colgroup>
+
+<thead>
+<tr>
+	<th> Attribute </th>
+	<th> Type </th>
+	<th> Default </th>
+	<th> Description </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td> <code>strength</code> </td>
+	<td> number </td>
+	<td> 100 </td>
+	<td> Displacement strength (0&#8211;200) </td>
+</tr>
+<tr>
+	<td> <code>depth</code> </td>
+	<td> number </td>
+	<td> 10 </td>
+	<td> Glass depth effect (0&#8211;30) </td>
+</tr>
+<tr>
+	<td> <code>blur</code> </td>
+	<td> number </td>
+	<td> 2 </td>
+	<td> Blur amount (0&#8211;10) </td>
+</tr>
+<tr>
+	<td> <code>chromatic</code> </td>
+	<td> number </td>
+	<td> 0 </td>
+	<td> Chromatic aberration (0&#8211;50) </td>
+</tr>
+<tr>
+	<td> <code>interactive</code> </td>
+	<td> boolean </td>
+	<td> false </td>
+	<td> Enable button-like interaction </td>
+</tr>
+<tr>
+	<td> <code>disabled</code> </td>
+	<td> boolean </td>
+	<td> false </td>
+	<td> Disable interactions </td>
+</tr>
+<tr>
+	<td> <code>elevated</code> </td>
+	<td> boolean </td>
+	<td> false </td>
+	<td> Enhanced visual styling </td>
+</tr>
+<tr>
+	<td> <code>href</code> </td>
+	<td> string </td>
+	<td> - </td>
+	<td> Make it a link (like <code>&lt;a&gt;</code>) </td>
+</tr>
+<tr>
+	<td> <code>target</code> </td>
+	<td> string </td>
+	<td> - </td>
+	<td> Link target (when href is set) </td>
+</tr>
+<tr>
+	<td> <code>rel</code> </td>
+	<td> string </td>
+	<td> - </td>
+	<td> Link relationship (when href is set) </td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<pre><code class="html">&lt;!-- Subtle effect --&gt;
+&lt;liquid-glass strength=&quot;50&quot; blur=&quot;1&quot; depth=&quot;5&quot;&gt;
+    Subtle glass effect
+&lt;/liquid-glass&gt;
+
+&lt;!-- Strong effect with chromatic aberration --&gt;
+&lt;liquid-glass strength=&quot;150&quot; chromatic=&quot;20&quot; depth=&quot;15&quot;&gt;
+    Strong glass with color separation
+&lt;/liquid-glass&gt;
+
+&lt;!-- Interactive button --&gt;
+&lt;liquid-glass interactive strength=&quot;100&quot; blur=&quot;3&quot;&gt;
+    Interactive button
+&lt;/liquid-glass&gt;
+
+&lt;!-- Link component --&gt;
+&lt;liquid-glass href=&quot;https://github.com&quot; target=&quot;_blank&quot; strength=&quot;80&quot;&gt;
+    GitHub Link
+&lt;/liquid-glass&gt;
+
+&lt;!-- Disabled state --&gt;
+&lt;liquid-glass disabled strength=&quot;100&quot;&gt;
+    Disabled glass element
+&lt;/liquid-glass&gt;
+</code></pre>
+
+<h2 id="csscustomproperties">CSS Custom Properties</h2>
+
+<p>The web component supports CSS custom properties for advanced styling:</p>
+
+<pre><code class="css">liquid-glass {
+    --lg-blur: 8px;
+    --lg-saturate: 1.2;
+    --lg-contrast: 1.1;
+    --lg-brightness: 1.05;
+    --lg-bg: rgba(255, 255, 255, 0.15);
+    --lg-border: rgba(255, 255, 255, 0.3);
+    --lg-radius: 20px;
+}
+</code></pre>
+
+<h2 id="browsersupport">Browser Support</h2>
+
+<ul>
+<li>✅ Chrome 88+</li>
+<li>✅ Firefox 87+</li>
+<li>✅ Safari 14+</li>
+<li>✅ Edge 88+</li>
+</ul>
+
+<p><strong>Note</strong>: Advanced displacement effects require modern browsers with SVG filter support. The library gracefully falls back to blur-only effects on older browsers.</p>
+
+<h2 id="performance">Performance</h2>
+
+<ul>
+<li>Optimized with ResizeObserver for efficient updates</li>
+<li>RequestAnimationFrame-coalesced filter updates</li>
+<li>Minimal DOM mutations</li>
+<li>Lazy filter generation</li>
+</ul>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<ul>
+<li>Full keyboard navigation support</li>
+<li>Screen reader compatible</li>
+<li>Focus management</li>
+<li>ARIA attributes</li>
+<li>Reduced motion support</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="directdownload">Direct Download</h3>
+
+<ol>
+<li>Download <code>liquid-glass.js</code> and <code>liquid-glass.css</code></li>
+<li>Include in your HTML:</li>
+</ol>
+
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;./liquid-glass.css&quot;&gt;
+&lt;script type=&quot;module&quot; src=&quot;./liquid-glass.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="cdncomingsoon">CDN (Coming Soon)</h3>
+
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/liquid-glass-js@latest/liquid-glass.css&quot;&gt;
+&lt;script type=&quot;module&quot; src=&quot;https://cdn.jsdelivr.net/npm/liquid-glass-js@latest/liquid-glass.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<p>Check out the <a href="https://bemoredifferent.github.io/liquid-glass-js/">live demo</a> to see all effects in action.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+
+<h2 id="license">License</h2>
+
+<p>MIT License - see <a href="LICENSE">LICENSE</a> file for details.</p>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="v1.0.0">v1.0.0</h3>
+
+<ul>
+<li>Initial release</li>
+<li>Web component implementation</li>
+<li>CSS class support</li>
+<li>Advanced SVG displacement filters</li>
+<li>Chromatic aberration effects</li>
+<li>Full accessibility support</li>
+</ul>
+
+</body>
+</html>
+
